@@ -57,5 +57,8 @@ public class AnimatorController : MonoBehaviour
         animator.SetBool("Waxed",false);
     }
 
-    
+    internal void Cleaning()
+    {
+        animator.Play("Cleaning.CleanerAnim");
+    }
 }

@@ -9,6 +9,7 @@ public class WaxStickControl : MonoBehaviour
     public bool isMove;
     public Rigidbody rig;
     [SerializeField] private GameObject wax;
+    [SerializeField] private GameObject hair;
     Coroutine WaxCor; //z 3.258 ve 3.337 ---> 3.146
     IEnumerator waxEnumarator;
 
@@ -60,6 +61,10 @@ public class WaxStickControl : MonoBehaviour
                 try
                 {
                     AnimatorController._instance.IsPlay();
+                    GameObject[] hairs = GameObject.FindGameObjectsWithTag("Hair");
+                    foreach (GameObject hair in hairs)
+                        Destroy(hair);
+
                 }
                 catch (System.Exception ex)
                 {
