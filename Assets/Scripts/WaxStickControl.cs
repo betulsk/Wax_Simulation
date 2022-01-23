@@ -52,21 +52,13 @@ public class WaxStickControl : MonoBehaviour
     private IEnumerator WaxCoordination()
     {
         if (wax.transform.position.z >= 3.124f)
-        {
-            Debug.Log("Start");
-            yield return new WaitForSeconds(0.005f);
-            Debug.Log("End");
-
-            Debug.Log("First pos Z= " + wax.transform.position.z);
-            float z = (wax.transform.position.z * 0.001f);
-            Debug.Log("Z= " + z);
-            wax.transform.position = wax.transform.position - new Vector3(0, 0, z);
-            Debug.Log("Transform z: " + wax.transform.position.z);
+        {            
+            float z = (wax.transform.position.z * 0.001f);            
+            wax.transform.position = wax.transform.position - new Vector3(0, 0, z);            
             if (wax.transform.position.z <= 3.13f)
             {
                 try
                 {
-                    Debug.Log("Animation will play");
                     AnimatorController._instance.IsPlay();
                 }
                 catch (System.Exception ex)
@@ -82,6 +74,7 @@ public class WaxStickControl : MonoBehaviour
         
     }
 
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "WaxArea")
@@ -95,5 +88,7 @@ public class WaxStickControl : MonoBehaviour
         }
 
     }
+
+
     
 }

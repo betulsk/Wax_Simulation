@@ -28,12 +28,24 @@ public class AnimatorController : MonoBehaviour
 
     Animator animator;
     [SerializeField] private GameObject objectWax;
+    SkinnedMeshRenderer skinnedMeshRenderer;
+
+
+    
 
     private void Start()
     {
        animator = objectWax.GetComponent<Animator>();
         _instance = AnimatorController.Instance;
+        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
 
+    }
+
+    internal IEnumerator IsPlayN() 
+    {
+        IsPlay();
+        yield return new WaitForSecondsRealtime(5f);
+        IsStop();
     }
     internal void IsPlay() 
     {
@@ -44,4 +56,6 @@ public class AnimatorController : MonoBehaviour
     {
         animator.SetBool("Waxed",false);
     }
+
+    
 }

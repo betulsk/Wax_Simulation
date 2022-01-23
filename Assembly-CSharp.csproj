@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\WaxStickControl.cs" />
     <Compile Include="Assets\Scripts\AnimatorController.cs" />
+    <Compile Include="Assets\Scripts\Peeling.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
