@@ -9,9 +9,15 @@ public class WaxStickControl : MonoBehaviour
     public bool isMove;
     public Rigidbody rig;
     [SerializeField] private GameObject wax;
-    Coroutine WaxCor; //z 3.258---> 3.146
+    Coroutine WaxCor; //z 3.258 ve 3.337 ---> 3.146
     IEnumerator waxEnumarator;
 
+    public Animation anim;
+
+    private void Start()
+    {
+        anim = wax.GetComponent<Animation>();
+    }
     private void Update()
     {
         if (Input.GetMouseButton(0))
@@ -50,20 +56,28 @@ public class WaxStickControl : MonoBehaviour
 
     private IEnumerator WaxCoordination()
     {
-        if (wax.transform.position.z >= 3.1f)
+        if (wax.transform.position.z >= 3.124f)
         {
             Debug.Log("Start");
-            yield return new WaitForSeconds(0.23f);
+            yield return new WaitForSeconds(0.005f);
             Debug.Log("End");
 
             Debug.Log("First pos Z= " + wax.transform.position.z);
-            float z = (wax.transform.position.z * 0.01f);
+            float z = (wax.transform.position.z * 0.001f);
             Debug.Log("Z= " + z);
             wax.transform.position = wax.transform.position - new Vector3(0, 0, z);
             Debug.Log("Transform z: " + wax.transform.position.z);
         }
+        yield return new WaitForSecondsRealtime(0.01f);
+
+        if (wax.transform.position.z<= 3.12f)
+        {
+            // wax.GetComponent<Animator>().enabled=false;
+            anim.Play("WaxBlend");
+        }
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "WaxArea")
         {
@@ -76,4 +90,17 @@ public class WaxStickControl : MonoBehaviour
         }
 
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "WaxArea")
+    //    {
+    //        Debug.Log("Trigger");
+    //        if (Input.GetMouseButton(0))
+    //        {
+    //            StartCoroutine(WaxCoordination());
+    //        }
+
+    //    }
+
+    //}
 }

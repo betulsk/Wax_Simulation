@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Waxing : MonoBehaviour
 {
-    Coroutine WaxCor; //z 3.258---> 3.146
+    //public Animator animator;
 
-    IEnumerator waxEnumarator;
-    
-
-    private IEnumerator WaxCoordination()
+    private void Start()
     {
+        //animator = GetComponent<Animator>();
+    }
 
-        yield return new WaitForSeconds(0.23f);        
-        float z = (transform.position.z * 0.01f);         
-        transform.position= transform.position - new Vector3(0, 0, z );
-
+    private void Update()
+    {
+        
     }
 }
