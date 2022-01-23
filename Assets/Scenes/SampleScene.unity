@@ -791,6 +791,10 @@ PrefabInstance:
       value: 0.19244015
       objectReference: {fileID: 0}
     - target: {fileID: -3887185075125053422, guid: 090b74d1a1a105f40a0683459f3d660a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 65df8369bb2c92d40aca2e5778d3ef0e, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 090b74d1a1a105f40a0683459f3d660a, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1266,21 +1270,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 090b74d1a1a105f40a0683459f3d660a, type: 3}
   m_PrefabInstance: {fileID: 992950494}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &1786539408
-Animation:
+--- !u!114 &1786539408
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786539407}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 482c92a4b9cd1094492c3cfd55d545a5, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c9dbc4fce0c04439a4d7bf93e9a4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectWax: {fileID: 1786539407}
 --- !u!95 &1786539410
 Animator:
   serializedVersion: 3
@@ -1289,7 +1291,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786539407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 665edf7c5c7de444997a97aaf8d1b895, type: 2}
   m_CullingMode: 0
@@ -1450,11 +1452,11 @@ PrefabInstance:
     - target: {fileID: 6398186083250255153, guid: 70fe4bb885d52134db1843718c928721, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 1786539408}
+      objectReference: {fileID: 0}
     - target: {fileID: 6398186083250255153, guid: 70fe4bb885d52134db1843718c928721, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 1786539410}
+      objectReference: {fileID: 0}
     - target: {fileID: 6398186083250255153, guid: 70fe4bb885d52134db1843718c928721, type: 3}
       propertyPath: waxCollider
       value: 

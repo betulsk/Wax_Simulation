@@ -12,11 +12,9 @@ public class WaxStickControl : MonoBehaviour
     Coroutine WaxCor; //z 3.258 ve 3.337 ---> 3.146
     IEnumerator waxEnumarator;
 
-    public Animation anim;
 
     private void Start()
     {
-        anim = wax.GetComponent<Animation>();
     }
     private void Update()
     {
@@ -51,9 +49,6 @@ public class WaxStickControl : MonoBehaviour
         }
     }
 
-
-
-
     private IEnumerator WaxCoordination()
     {
         if (wax.transform.position.z >= 3.124f)
@@ -67,14 +62,24 @@ public class WaxStickControl : MonoBehaviour
             Debug.Log("Z= " + z);
             wax.transform.position = wax.transform.position - new Vector3(0, 0, z);
             Debug.Log("Transform z: " + wax.transform.position.z);
+            if (wax.transform.position.z <= 3.13f)
+            {
+                try
+                {
+                    Debug.Log("Animation will play");
+                    AnimatorController._instance.IsPlay();
+                }
+                catch (System.Exception ex)
+                {
+                    System.Console.WriteLine("error"+ ex.Message);
+                    throw;
+                }
+                
+            }
         }
         yield return new WaitForSecondsRealtime(0.01f);
 
-        if (wax.transform.position.z<= 3.12f)
-        {
-            // wax.GetComponent<Animator>().enabled=false;
-            anim.Play("WaxBlend");
-        }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -90,17 +95,5 @@ public class WaxStickControl : MonoBehaviour
         }
 
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "WaxArea")
-    //    {
-    //        Debug.Log("Trigger");
-    //        if (Input.GetMouseButton(0))
-    //        {
-    //            StartCoroutine(WaxCoordination());
-    //        }
-
-    //    }
-
-    //}
+    
 }
