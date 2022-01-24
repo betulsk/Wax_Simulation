@@ -8,6 +8,7 @@ public class Peeling : MonoBehaviour
 {
     [SerializeField] private GameObject wax;
     [SerializeField] private GameObject hair;
+    public Material material;
 
     public float minSwipeDistY;
 
@@ -18,11 +19,15 @@ public class Peeling : MonoBehaviour
     [SerializeField] int value = 30;
     [SerializeField] int plusValue;
     [SerializeField] private DOTweenAnimation cleaningWax;
+    Color32 firstColor, secondColor;
 
     void Start()
     {
         DOTween.Init(true, true, LogBehaviour.Verbose);
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+        material.SetFloat("_Glossiness", 1f);
+
+
     }
 
     // Update is called once per frame
@@ -45,8 +50,10 @@ public class Peeling : MonoBehaviour
                         float swipeValue = Mathf.Sign(touch.position.y - startPos.y);
                         if ((swipeValue > 0 || swipeValue < 0)) //up- down swipe
                         {
-                            if (value >= 120)
+                            if (value >= 80)
                             {
+                                material.SetFloat("_Glossiness", 0f);
+
                                 Debug.Log("Up- Down swipe ");
                                 AnimatorController._instance.IsStop();
                                 skinnedMeshRenderer.SetBlendShapeWeight(1, value);
