@@ -1504,7 +1504,7 @@ MonoBehaviour:
   minSwipeDistY: 23
   minSwipeDistX: 23
   value: 0
-  plusValue: 40
+  plusValue: 20
   cleaningWax: {fileID: 1786539413}
 --- !u!114 &1786539413
 MonoBehaviour:

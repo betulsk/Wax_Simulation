@@ -46,9 +46,9 @@ public class Peeling : MonoBehaviour
                     if (swipeDistVertical > minSwipeDistY)
                     {
                         float swipeValue = Mathf.Sign(touch.position.y - startPos.y);
-                        if ((swipeValue > 0 || swipeValue < 0)) //up- down swipe
+                        if ((swipeValue > 0 || swipeValue < 0) && wax.transform.position.z <= 3.13f) //up- down swipe
                         {
-                            if (value >= 80)
+                            if (value >= 120)
                             {
                                 material.SetFloat("_Glossiness", 0f);
 
@@ -69,7 +69,7 @@ public class Peeling : MonoBehaviour
                     {
                         float swipeValue = Mathf.Sign(touch.position.x - startPos.x);
 
-                        if (swipeValue > 0 || swipeValue < 0) //right - left swipe 
+                        if ((swipeValue > 0 || swipeValue < 0) && wax.transform.position.z <= 3.13f) //right - left swipe 
                         {
                             if (value <= 120)
                             {
