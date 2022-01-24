@@ -10,9 +10,7 @@ public class WaxStickControl : MonoBehaviour
     public Rigidbody rig;
     [SerializeField] private GameObject wax;
     [SerializeField] private GameObject hair;
-    Coroutine WaxCor; //z 3.258 ve 3.337 ---> 3.146
-    IEnumerator waxEnumarator;
-
+    
 
     private void Start()
     {
@@ -75,8 +73,7 @@ public class WaxStickControl : MonoBehaviour
             }
         }
         yield return new WaitForSecondsRealtime(0.01f);
-
-        
+                
     }
 
     

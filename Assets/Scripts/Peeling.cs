@@ -19,14 +19,12 @@ public class Peeling : MonoBehaviour
     [SerializeField] int value = 30;
     [SerializeField] int plusValue;
     [SerializeField] private DOTweenAnimation cleaningWax;
-    Color32 firstColor, secondColor;
 
     void Start()
     {
         DOTween.Init(true, true, LogBehaviour.Verbose);
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         material.SetFloat("_Glossiness", 1f);
-
 
     }
 
@@ -56,12 +54,10 @@ public class Peeling : MonoBehaviour
 
                                 Debug.Log("Up- Down swipe ");
                                 AnimatorController._instance.IsStop();
-                                skinnedMeshRenderer.SetBlendShapeWeight(1, value);
-                                Debug.Log("Value= " + value);
+                                skinnedMeshRenderer.SetBlendShapeWeight(1, value);                                
                                 cleaningWax.DOPlay();
 
                             }
-
 
 
                         }
@@ -80,12 +76,9 @@ public class Peeling : MonoBehaviour
                                 Debug.Log("Right Left swipe");
                                 AnimatorController._instance.IsStop();
                                 skinnedMeshRenderer.SetBlendShapeWeight(1, value);
-                                hair = GameObject.FindGameObjectWithTag("Hair");
-                                Destroy(hair);
-                                Debug.Log("Value= " + value);
+                                cleaningWax.DOPlay();
 
                             }
-
 
                         }
                     }

@@ -29,9 +29,7 @@ public class AnimatorController : MonoBehaviour
     Animator animator;
     [SerializeField] private GameObject objectWax;
     SkinnedMeshRenderer skinnedMeshRenderer;
-
-
-    
+           
 
     private void Start()
     {
@@ -56,9 +54,5 @@ public class AnimatorController : MonoBehaviour
     {
         animator.SetBool("Waxed",false);
     }
-
-    internal void Cleaning()
-    {
-        animator.Play("Cleaning.CleanerAnim");
-    }
+        
 }
